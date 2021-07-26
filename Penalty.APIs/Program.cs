@@ -1,11 +1,5 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Penalty.APIs.Setups.Models;
 
 namespace Penalty.APIs
 {
@@ -18,6 +12,23 @@ namespace Penalty.APIs
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseSerilog((context, configuration) =>
+                {
+                    var loggingSettings = new LoggingSettings();
+                    context.Configuration.Bind(nameof(loggingSettings), loggingSettings);
+                    configuration.Enrich.FromLogContext()
+                        .Enrich.WithAssemblyInformationalVersion()
+                        .Enrich.WithEnvironmentUserName()
+                        .Enrich.WithProcessId()
+                        .Enrich.WithProcessName()
+                        .Enrich.WithThreadId()
+                        .Enrich.WithEnvironmentUserName()
+                        .WriteTo.Console()
+                        .WriteTo.MySQL(loggingSettings.ConnectionString,loggingSettings.Table)
+                        .Enrich.WithProperty("Environment", context.HostingEnvironment.EnvironmentName)
+                        .ReadFrom.Configuration(context.Configuration);
+
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
