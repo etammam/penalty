@@ -10,8 +10,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Penalty.Application\Penalty.Application.csproj" />
+    <ProjectReference Include="..\Penalty.Crosscut\Penalty.Crosscut.csproj" />
+    <ProjectReference Include="..\Penalty.Integration\Penalty.Integration.csproj" />
   </ItemGroup>
 </Project>

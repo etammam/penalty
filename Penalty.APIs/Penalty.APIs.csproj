@@ -20,14 +20,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="wwwroot\dataset\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Penalty.Application\Penalty.Application.csproj" />
     <ProjectReference Include="..\Penalty.Crosscut\Penalty.Crosscut.csproj" />
     <ProjectReference Include="..\Penalty.Infrastructure\Penalty.Infrastructure.csproj" />
+    <ProjectReference Include="..\Penalty.Integration\Penalty.Integration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\datasets\penalties.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

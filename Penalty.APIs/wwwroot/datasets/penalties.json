@@ -1,0 +1,33 @@
+[
+  {
+    "id": "0134db563d0e49ad9e23601162f4dd42",
+    "name": "United Arab Emirates",
+    "nativeName": "œÊ·… «·≈„«—«  «·⁄—»Ì… «·„ Õœ…",
+    "altSpellings": [
+      "AE",
+      "UAE",
+      "Emirates"
+    ],
+    "currency": "AED",
+    "fine": 0.5,
+    "holidays": [
+      "Friday",
+      "Saturday"
+    ]
+  },
+  {
+    "id": "0d33fb8a01494525913d9ed5a84dc9dd",
+    "name": "Egypt",
+    "nativeName": "„’—˝",
+    "altSpellings": [
+      "EG",
+      "Arab Republic of Egypt"
+    ],
+    "currency": "EGP",
+    "fine": 0.1,
+    "holidays": [
+      "Friday",
+      "Saturday"
+    ]
+  }
+]

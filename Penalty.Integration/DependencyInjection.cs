@@ -1,5 +1,5 @@
-﻿using AspNetCore.ServiceRegistration.Dynamic;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Penalty.Integration.Exchange;
 
 namespace Penalty.Integration
 {
@@ -8,9 +8,7 @@ namespace Penalty.Integration
         public static IServiceCollection AddIntegrationLayer(this IServiceCollection services)
         {
             //Setup Services
-            services.AddServicesOfType<IScopedService>();
-            services.AddServicesOfType<ISingletonService>();
-            services.AddServicesOfType<ITransientService>();
+            services.AddSingleton<ICurrencyExchange, ExchangerateCurrencyExchangeManager>();
             return services;
         }
     }

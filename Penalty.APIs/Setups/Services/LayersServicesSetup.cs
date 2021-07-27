@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Penalty.APIs.Setups.Factory;
 using Penalty.Application;
 using Penalty.Infrastructure;
+using Penalty.Integration;
 
 namespace Penalty.APIs.Setups.Services
 {

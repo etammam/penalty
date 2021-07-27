@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Penalty.APIs.Setups.Models;
+using Serilog;
 
 namespace Penalty.APIs
 {
@@ -24,7 +27,6 @@ namespace Penalty.APIs
                         .Enrich.WithThreadId()
                         .Enrich.WithEnvironmentUserName()
                         .WriteTo.Console()
-                        .WriteTo.MySQL(loggingSettings.ConnectionString,loggingSettings.Table)
                         .Enrich.WithProperty("Environment", context.HostingEnvironment.EnvironmentName)
                         .ReadFrom.Configuration(context.Configuration);
 
