@@ -2,7 +2,8 @@
 
 namespace Penalty.Application.Services.Penalties.ApplyingBusinessPenalty
 {
-    public class ApplyingBusinessPenaltyCommandValidator : AbstractValidator<ApplyingBusinessPenaltyCommand>
+    public class ApplyingBusinessPenaltyCommandValidator : 
+        AbstractValidator<ApplyingBusinessPenaltyCommand>
     {
         public ApplyingBusinessPenaltyCommandValidator()
         {

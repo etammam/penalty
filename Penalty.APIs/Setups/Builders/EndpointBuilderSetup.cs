@@ -3,9 +3,9 @@ using Penalty.APIs.Setups.Factory;
 
 namespace Penalty.APIs.Setups.Builders
 {
-    public class EndpointBuilderSetup : IApplicationSetup
+    public static class EndpointBuilderSetup
     {
-        public void SetupApplication(IApplicationBuilder app)
+        public static void SetupEndpointConfiguration(this IApplicationBuilder app)
         {
             app.UseEndpoints(endpoints =>
             {

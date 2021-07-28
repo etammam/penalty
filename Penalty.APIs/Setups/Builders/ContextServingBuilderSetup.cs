@@ -3,9 +3,9 @@ using Penalty.APIs.Setups.Factory;
 
 namespace Penalty.APIs.Setups.Builders
 {
-    public class ContextServingBuilderSetup : IApplicationSetup
+    public static class ContextServingBuilderSetup 
     {
-        public void SetupApplication(IApplicationBuilder app)
+        public static void ContextServingSetup(this IApplicationBuilder app)
         {
             app.UseHttpsRedirection();
             app.UseStaticFiles();

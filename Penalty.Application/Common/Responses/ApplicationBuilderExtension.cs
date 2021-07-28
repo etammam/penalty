@@ -18,30 +18,27 @@ namespace Penalty.Application.Common.Responses
             {
                 x.Run(async context =>
                 {
-                    string errorText;
+                    string errorText = "";
                     var errorFeature = context.Features.Get<IExceptionHandlerFeature>();
                     var exception = errorFeature.Error;
                     if (exception.GetType() == typeof(ValidationException))
                     {
-                        var validationException = (ValidationException) exception;
+                        var validationException = (ValidationException)exception;
                         var response = new ValidationFilterOutputResponse
                         {
-                            Message = "one or more validation failures has been occurred",
+                            Message = "One or more validation failures have occurred.",
                             StatusCode = HttpStatusCode.BadRequest,
                             Success = false,
                             Model = null,
-                            Errors = validationException.Errors.Select(error=>new ErrorModel
+                            Errors = validationException.Errors.Select(err => new ErrorModel()
                             {
-                                ErrorCode = error.ErrorCode,
-                                Message = error.ErrorMessage,
-                                Property = error.PropertyName
+                                ErrorCode = err.ErrorCode,
+                                Message = err.ErrorMessage,
+                                Property = err.PropertyName
                             }).ToList()
                         };
-                        errorText = JsonSerializer.Serialize(response, new JsonSerializerOptions()
-                        {
-                            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                        });
-                        context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
+                        errorText = JsonSerializer.Serialize(response, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     }
                     else
                     {
@@ -50,14 +47,10 @@ namespace Penalty.Application.Common.Responses
                             Message = exception.Message,
                             StatusCode = HttpStatusCode.BadRequest,
                             Success = false,
-                            Model = null
+                            Model = null,
                         };
-                        errorText = JsonSerializer.Serialize(response, new JsonSerializerOptions()
-                        {
-                            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                        });
+                        errorText = JsonSerializer.Serialize(response, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
                     }
-
                     context.Response.ContentType = "application/json";
                     await context.Response.WriteAsync(errorText, Encoding.UTF8);
                 });

@@ -3,9 +3,9 @@ using Penalty.APIs.Setups.Factory;
 
 namespace Penalty.APIs.Setups.Builders
 {
-    public class SwaggerBuilderSetup : IApplicationSetup
+    public static class SwaggerBuilderSetup
     {
-        public void SetupApplication(IApplicationBuilder app)
+        public static void SetupSwagger(this IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();

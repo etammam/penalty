@@ -1,8 +1,6 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Penalty.APIs.Setups.Bases;
-using Penalty.Application.Services.Penalties;
 using Penalty.Application.Services.Penalties.ApplyingBusinessPenalty;
 using Penalty.Application.Services.Penalties.CountBusinessDays;
 
