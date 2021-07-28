@@ -33,6 +33,18 @@ namespace Penalty.Infrastructure.Implementations
             });
         }
 
+        public Task<OutputResponse<SingleCountryResult>> GetSingleCountryByNameAsync(string countryName)
+        {
+            var penalties = _storeManager.Read<List<Domain.Entities.Penalty>>("penalties.json");
+            return Task.FromResult(new OutputResponse<SingleCountryResult>()
+            {
+                Message = ResponseMessages.Success,
+                Success = true,
+                StatusCode = HttpStatusCode.OK,
+                Model = _mapperManager.Map<List<SingleCountryResult>>(penalties).SingleOrDefault(d=>d.Country == countryName)
+            });
+        }
+
         public Task<string[]> GetCountryHolidaysAsync(string country)
         {
             var penalties = _storeManager.Read<List<Domain.Entities.Penalty>>("penalties.json");

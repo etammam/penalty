@@ -21,8 +21,9 @@
         
         public class PenaltyCalculator
         {
-            private const string Prefix = "penalty";
-            public const string CountBusinessDays = Prefix + "count-business-days";
+            private const string Prefix = Rule+"penalty";
+            public const string CountBusinessDays = Prefix + "/count-business-days";
+            public const string ApplyingPenaltyValue = Prefix + "/apply-penalty";
         }
     }
 }
