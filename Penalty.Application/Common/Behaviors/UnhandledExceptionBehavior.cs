@@ -26,7 +26,7 @@ namespace Penalty.Application.Common.Behaviors
             {
                 var requestName = typeof(TRequest).Name;
                 Console.ForegroundColor = ConsoleColor.Red;
-                _logger.Error(ex, "Ifrag Request: Unhandled Exception for Request {Name} {@Request}", requestName, JsonConvert.SerializeObject(request));
+                _logger.Error(ex, "Penalty Request: Unhandled Exception for Request {Name} {@Request}", requestName, JsonConvert.SerializeObject(request));
                 Console.ForegroundColor = ConsoleColor.White;
                 throw;
             }

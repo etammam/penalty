@@ -18,5 +18,11 @@
             public const string IsCurrencySupported = Prefix + "/is-currency-supported/{currencyCode}";
             public const string Exchange = Prefix + "/exchange";
         }
+        
+        public class PenaltyCalculator
+        {
+            private const string Prefix = "penalty";
+            public const string CountBusinessDays = Prefix + "count-business-days";
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Penalty.Application.Common.Behaviors
             {
                 userName = await _currentUser.GetUserNameAsync(userId);
             }
-            _logger.Information("Ifrag Request: {Name} {@UserId} {@UserName} {@Request}",
+            _logger.Information("Penalty Request: {Name} {@UserId} {@UserName} {@Request}",
                 requestName, userId, userName, request);
         }
     }

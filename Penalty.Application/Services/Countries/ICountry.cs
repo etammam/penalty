@@ -9,5 +9,6 @@ namespace Penalty.Application.Services.Countries
     public interface ICountry : ISingletonService
     {
         Task<OutputResponse<List<SingleCountryResult>>> GetCountriesAsync();
+        Task<string[]> GetCountryHolidaysAsync(string country);
     }
 }

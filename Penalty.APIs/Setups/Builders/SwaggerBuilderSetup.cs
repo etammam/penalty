@@ -9,7 +9,7 @@ namespace Penalty.APIs.Setups.Builders
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ifrag Application"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Penalty Application"));
         }
     }
 }

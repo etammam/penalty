@@ -5,7 +5,7 @@ using Penalty.Application.Services.Countries.ListOfCountries;
 
 namespace Penalty.APIs.Controllers
 {
-    public class PenaltiesController : CoreController
+    public class CountriesController : CoreController
     {
         [HttpGet(Router.Country.GetListOfCountries)]
         public async Task<IActionResult> GetListOfCountries()

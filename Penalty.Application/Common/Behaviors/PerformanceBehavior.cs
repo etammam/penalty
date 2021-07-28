@@ -41,7 +41,7 @@ namespace Penalty.Application.Common.Behaviors
                 }
 
                 _logger.Warning(
-                    "Ifrag Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
+                    "Penalty Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userId, userName, request);
             }
 

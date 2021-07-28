@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -30,6 +31,16 @@ namespace Penalty.Infrastructure.Implementations
                 StatusCode = HttpStatusCode.OK,
                 Model = _mapperManager.Map<List<SingleCountryResult>>(penalties)
             });
+        }
+
+        public Task<string[]> GetCountryHolidaysAsync(string country)
+        {
+            var penalties = _storeManager.Read<List<Domain.Entities.Penalty>>("penalties.json");
+            var countries = _mapperManager.Map<List<SingleCountryResult>>(penalties);
+            var holidays = countries
+                .FirstOrDefault(d => d.Country == country)
+                ?.Holidays;
+            return Task.FromResult(holidays);
         }
     }
 }
